@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "Hello, R Markdown!"
+date:   2017-06-16 23:00:40 +0100
+categories: r jekyll
+---
+
+You’ll find this post in your `_source` directory. Unlike the other example post on this blog (found in `_posts`), this one was written in R Markdown.
+
+This means you can generate plots:
+
+```{r plot}
+plot(iris$Petal.Width, iris$Petal.Length,
+     col = as.numeric(iris$Species) + 1,
+     xlab = 'Petal Width', ylab = 'Petal Length',
+     main = "Fisher's iris data")
+```
+
+And nicely-formatted tables:
+
+```{r table, results = 'asis'}
+knitr::kable(head(iris))
+```
+
+To add a new R Markdown posts, simply add a file in the `_source` directory that follows the convention `YYYY-MM-DD-name-of-post.Rmd` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+Want a local preview? Run
+```r
+source('knit.R')
+```
+in an R ression to compile the R Markdown files, then run `jekyll serve` on the command line to preview the site (you will need Jekyll installed for this).
